@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best STV</title>
+    <link rel="stylesheet" href="src/css/normalize.css" />
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
@@ -12,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 </head>
 
@@ -30,16 +33,71 @@
             </div>
             <div class="swiper-pagination"></div>
         </div>
+        <div class="center_overlay">
+            <h3>Welcome</h3>
+            <h1>Best STV</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi itaque cum eos quas vel quaerat sapiente
+                beatae soluta id, nihil labore optio</p>
+            <a class="button"><span class="text">Clic pour Tester</span></a>
+        </div>
     </section>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis praesentium temporibus at amet quasi
-        exercitationem atque est voluptates sed sint? Iure eius provident cum sed pariatur odit labore voluptas totam?
-    </p>
+    <section class="featured">
+        <div class="title">
+            <h3>Simplicité</h3>
+            <h2>Titre Loreem</h2>
+        </div>
+        <div class="grid">
+            <div class="row">
+                <div class="card">
+                    <img src="/assets/landing-home-1.jpg" alt="join the prayer website">
+                    <h4>Home</h4>
+                </div>
+                <div class="card">
+                    <img src="/assets/landing-home-2.jpg" alt="chapel theme">
+                    <h4>Home</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card">
+                    <img src="/assets/landing-home-3.jpg" alt="join the prayer website">
+                    <h4>Home</h4>
+                </div>
+                <div class="card">
+                    <img src="/assets/landing-home-4.jpg" alt="chapel theme">
+                    <h4>Home</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="showcase">
+        <img src="/assets/landing-slider1-background.jpg" alt="church">
+        <div class="center_overlay">
+            <div class="left">
+                <h3>Welcome</h3>
+                <h1>Best STV</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi itaque cum eos quas vel quaerat
+                    sapiente
+                    beatae soluta id, nihil labore optio</p>
+                <a class="button"><span class="text">Clic pour Tester</span></a>
+            </div>
+            <div class="right">
+                <img src="/assets/landing-slider1-img-1-2.jpg" alt="">
+                <img src="/assets/landing-slider1-img-3.jpg" alt="">
+                <img src="/assets/landing-slider1-img-2.jpg" alt="">
+            </div>
+        </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            keyboard: {
+                enabled: true,
+            },
+            speed: 600,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,

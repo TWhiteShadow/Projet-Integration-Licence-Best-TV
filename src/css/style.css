@@ -1,12 +1,8 @@
-* {
-  color: red;
-}
-
 html,
 body {
   position: relative;
   height: 100%;
-  font-family: "Noto Serif", serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -15,30 +11,280 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
+  counter-reset: cardNumber;
+}
+
+h3 {
+  font-family: "Noto Serif", serif;
+  margin: 0;
+  font-style: italic;
+  font-weight: 500;
+  color: #ce9f95;
+}
+
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 4px;
+  font-size: 1.2rem;
 }
 
 .top {
   height: 100vh;
 }
-
-header {
+.top header {
   position: absolute;
   align-items: center;
   display: flex;
   width: 100%;
-  height: 100px;
+  height: 15dvh;
   justify-content: left;
   z-index: 100;
-  background-color: rgba(255, 255, 255, 0.128) !important;
+  font-family: "Noto Serif", serif;
 }
-
-header span {
-  color: white;
+.top header span {
+  color: #ebd9d0;
   font-size: 20px;
-  font-weight: bold;
   margin-left: 20px;
+  font-style: italic;
+  margin-left: 5dvw;
+}
+.top .center_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: translate(-50, -50);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  z-index: 100;
+  pointer-events: none;
+}
+.top .center_overlay > * {
+  pointer-events: all;
+}
+.top .center_overlay h3 {
+  color: white;
+}
+.top .center_overlay h1 {
+  font-size: 4rem;
+  letter-spacing: 0.3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 8px 0 5px;
+  text-align: center;
+}
+.top .center_overlay p {
+  max-width: 50ch;
+  text-align: center;
+  line-height: 2rem;
 }
 
+h2 {
+  font-size: 3rem;
+  letter-spacing: 0.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 8px 0 5px;
+}
+
+.featured {
+  margin: 100px 5dvw;
+}
+.featured .title {
+  margin: 10px 0 50px;
+}
+.featured .grid {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.featured .grid .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: auto;
+}
+.featured .card {
+  width: 100%;
+}
+.featured .card:last-child {
+  margin-top: 10rem;
+}
+.featured .card img {
+  z-index: 2;
+  position: relative;
+  width: 100%;
+}
+.featured .card h4 {
+  margin: 50px 0 70px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.featured .card h4:hover {
+  padding-left: 1.5rem;
+}
+.featured .card h4:hover::after {
+  width: 1rem;
+}
+.featured .card h4:hover::before {
+  padding-left: 0.9rem;
+}
+.featured .card h4::before {
+  position: absolute;
+  font-size: 11rem;
+  font-style: italic;
+  font-weight: 500;
+  color: #ce9f95;
+  transform: translate(20%, -50%);
+  opacity: 0.1;
+  z-index: 0;
+  font-family: "Noto Serif", serif;
+  transition: all 0.3s ease;
+  counter-increment: cardNumber;
+  content: "0" counter(cardNumber);
+}
+.featured .card h4::after {
+  content: " ";
+  width: 0rem;
+  height: 2px;
+  background: black;
+  top: 50%;
+  left: 0;
+  position: absolute;
+  transform: translateY(-50%);
+  transform-origin: center;
+  transition: width 0.3s ease;
+}
+
+.button {
+  background-color: transparent;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 1.25em 2em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  transition: all 0.3s ease-out;
+  user-select: none;
+  font-size: 13px;
+  background-color: white;
+}
+.button::before {
+  content: " ";
+  width: 1.5625rem;
+  height: 2px;
+  background: black;
+  top: 50%;
+  left: 1.5em;
+  position: absolute;
+  transform: translateY(-50%);
+  transform-origin: center;
+  transition: background 0.3s linear, width 0.3s linear;
+}
+.button .text {
+  font-size: 1.125em;
+  line-height: 1.33333em;
+  padding-left: 2em;
+  display: block;
+  text-align: left;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+.button:hover::before {
+  width: 0;
+}
+.button:hover .text {
+  padding-left: 0;
+}
+
+.showcase {
+  display: flex;
+  position: relative;
+}
+.showcase > img {
+  min-height: 300px;
+  height: 50dvh;
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.showcase .center_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: translate(-50, -50);
+  display: flex;
+}
+.showcase .center_overlay div {
+  width: 100%;
+}
+.showcase .center_overlay .left {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  z-index: 100;
+  pointer-events: none;
+}
+.showcase .center_overlay .left > * {
+  pointer-events: all;
+}
+.showcase .center_overlay .left h3 {
+  color: white;
+}
+.showcase .center_overlay .left h1 {
+  font-size: 4rem;
+  letter-spacing: 0.3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 8px 0 5px;
+  text-align: center;
+}
+.showcase .center_overlay .left p {
+  max-width: 50ch;
+  text-align: center;
+  line-height: 2rem;
+}
+.showcase .center_overlay .right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.showcase .center_overlay .right img {
+  position: absolute;
+  translate: -50% -50%;
+  top: 50%;
+  left: 50%;
+}
+.showcase .center_overlay .right img:nth-child(1) {
+  transform: translate(20%, 20%);
+}
 .swiper {
   width: 100%;
   height: 100%;
@@ -58,6 +304,25 @@ header span {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.swiper-pagination {
+  margin-bottom: 2dvh;
+}
+.swiper-pagination .swiper-pagination-bullet {
+  background-color: white;
+  height: 0.7rem;
+  width: 0.7rem;
+  margin: 0 8px !important;
+}
+
+@media (max-width: 768px) {
+  .featured .grid .row {
+    flex-direction: column;
+  }
+  .featured .grid .card:last-child {
+    margin-top: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
