@@ -2,11 +2,16 @@ html,
 body {
   position: relative;
   height: 100%;
+  max-width: 100dvw;
   font-family: "Montserrat", sans-serif;
+  background-color: white;
+  overflow-x: clip;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: #eee;
   font-size: 16px;
   color: #000;
   margin: 0;
@@ -30,10 +35,11 @@ h4 {
   font-size: 1.2rem;
 }
 
-.top {
+.top, .bottom {
   height: 100vh;
+  position: relative;
 }
-.top header {
+.top header, .bottom header {
   position: absolute;
   align-items: center;
   display: flex;
@@ -43,14 +49,14 @@ h4 {
   z-index: 100;
   font-family: "Noto Serif", serif;
 }
-.top header span {
+.top header span, .bottom header span {
   color: #ebd9d0;
   font-size: 20px;
   margin-left: 20px;
   font-style: italic;
   margin-left: 5dvw;
 }
-.top .center_overlay {
+.top .center_overlay, .bottom .center_overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -66,13 +72,13 @@ h4 {
   z-index: 100;
   pointer-events: none;
 }
-.top .center_overlay > * {
+.top .center_overlay > *, .bottom .center_overlay > * {
   pointer-events: all;
 }
-.top .center_overlay h3 {
+.top .center_overlay h3, .bottom .center_overlay h3 {
   color: white;
 }
-.top .center_overlay h1 {
+.top .center_overlay h1, .bottom .center_overlay h1 {
   font-size: 4rem;
   letter-spacing: 0.3rem;
   font-weight: 400;
@@ -80,7 +86,7 @@ h4 {
   margin: 8px 0 5px;
   text-align: center;
 }
-.top .center_overlay p {
+.top .center_overlay p, .bottom .center_overlay p {
   max-width: 50ch;
   text-align: center;
   line-height: 2rem;
@@ -227,6 +233,9 @@ h2 {
   object-fit: cover;
   position: relative;
 }
+.showcase div {
+  width: 40%;
+}
 .showcase .center_overlay {
   position: absolute;
   top: 0;
@@ -235,21 +244,19 @@ h2 {
   width: 100%;
   transform: translate(-50, -50);
   display: flex;
-}
-.showcase .center_overlay div {
-  width: 100%;
+  justify-content: space-around;
 }
 .showcase .center_overlay .left {
   color: white;
   display: flex;
   flex-direction: column;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   font-size: 20px;
   color: white;
   z-index: 100;
   pointer-events: none;
+  padding: 50px;
 }
 .showcase .center_overlay .left > * {
   pointer-events: all;
@@ -257,18 +264,19 @@ h2 {
 .showcase .center_overlay .left h3 {
   color: white;
 }
-.showcase .center_overlay .left h1 {
-  font-size: 4rem;
-  letter-spacing: 0.3rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  margin: 8px 0 5px;
-  text-align: center;
-}
 .showcase .center_overlay .left p {
   max-width: 50ch;
-  text-align: center;
+  text-align: justify;
   line-height: 2rem;
+}
+.showcase .center_overlay .left .button {
+  background-color: transparent;
+}
+.showcase .center_overlay .left .button span {
+  color: white;
+}
+.showcase .center_overlay .left .button::before {
+  background-color: #fff;
 }
 .showcase .center_overlay .right {
   position: relative;
@@ -283,8 +291,50 @@ h2 {
   left: 50%;
 }
 .showcase .center_overlay .right img:nth-child(1) {
-  transform: translate(20%, 20%);
+  transform: translate(5dvw, -15dvh);
 }
+.showcase .center_overlay .right img:nth-child(2) {
+  transform: translate(5dvw, 10dvh);
+}
+.showcase .center_overlay .right img:nth-child(3) {
+  transform: translate(-15dvw, 0%);
+}
+
+.projects .title {
+  margin: 100px auto 0;
+  width: 100%;
+  text-align: center;
+}
+.projects .grid {
+  display: grid;
+  gap: 5dvw;
+  padding: 5dvw;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: ". . ." ". . ." ". . .";
+}
+.projects .grid .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+.projects .grid .card h4 {
+  padding-top: 1rem;
+}
+
+.bottom {
+  color: black;
+  margin-top: 10dvh;
+  width: 100%;
+  height: 100%;
+}
+.bottom img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .swiper {
   width: 100%;
   height: 100%;
@@ -322,6 +372,27 @@ h2 {
   }
   .featured .grid .card:last-child {
     margin-top: 0;
+  }
+  .projects .grid {
+    display: grid;
+    gap: 5dvw;
+    padding: 5dvw;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: ". ." ". ." ". .";
+  }
+  .projects .grid .card {
+    height: max-content;
+  }
+}
+@media (max-width: 480px) {
+  .projects .grid {
+    display: grid;
+    gap: 5dvw;
+    padding: 5dvw;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "." "." ".";
   }
 }
 
